@@ -1,0 +1,91 @@
+---
+---
+
+<div class="contact-sidebar">
+	<h2>Contact Us</h2>
+	<form>
+		<input type="text" name="name" placeholder="Your Name" required>
+		<input type="email" name="email" placeholder="Your Email" required>
+		<textarea name="message" placeholder="Your Message" required></textarea>
+		<button type="submit">Send Message</button>
+	</form>
+	<div class="contact-buttons">
+		<a href="tel:+1234567890" class="phone-button">Call Us</a>
+		<a href="https://wa.me/1234567890" class="whatsapp-button">WhatsApp</a>
+	</div>
+</div>
+
+<style>
+	.contact-sidebar {
+		background-color: #23262d;
+		padding: 1.5rem;
+		border-radius: 8px;
+	}
+
+	h2 {
+		color: rgb(var(--accent-light));
+		margin-bottom: 1rem;
+	}
+
+	form {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	input, textarea {
+		padding: 0.5rem;
+		border-radius: 4px;
+		border: 1px solid #444;
+		background-color: #2c2c2c;
+		color: white;
+	}
+
+	textarea {
+		height: 100px;
+	}
+
+	button {
+		background-color: rgb(var(--accent));
+		color: white;
+		border: none;
+		padding: 0.5rem;
+		border-radius: 4px;
+		cursor: pointer;
+		transition: background-color 0.3s ease;
+	}
+
+	button:hover {
+		background-color: rgb(var(--accent-light));
+	}
+
+	.contact-buttons {
+		display: flex;
+		gap: 1rem;
+		margin-top: 1rem;
+	}
+
+	.phone-button, .whatsapp-button {
+		flex: 1;
+		text-align: center;
+		padding: 0.5rem;
+		border-radius: 4px;
+		text-decoration: none;
+		font-weight: bold;
+		transition: background-color 0.3s ease;
+	}
+
+	.phone-button {
+		background-color: #4CAF50;
+		color: white;
+	}
+
+	.whatsapp-button {
+		background-color: #25D366;
+		color: white;
+	}
+
+	.phone-button:hover, .whatsapp-button:hover {
+		opacity: 0.9;
+	}
+</style>

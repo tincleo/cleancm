@@ -1,57 +1,110 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
-import Header from '../components/Header.astro';
+
+const services = [
+  {
+    title: "Furniture Cleaning",
+    body: "Upholstery and leather cleaning, including repair and restoration.",
+    href: "/services/furniture-cleaning",
+    image: "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+  },
+  {
+    title: "Carpet and Rug Cleaning",
+    body: "Professional cleaning for all types of carpets and rugs.",
+    href: "/services/carpet-rug-cleaning",
+    image: "https://images.unsplash.com/photo-1558317374-067fb5f30001?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+  },
+  {
+    title: "Car Interior Deep Cleaning",
+    body: "Thorough cleaning and detailing for your vehicle's interior.",
+    href: "/services/car-interior-cleaning",
+    image: "https://images.unsplash.com/photo-1607860108855-64acf2078ed9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80"
+  },
+  {
+    title: "Mattress Cleaning",
+    body: "Deep cleaning and sanitization for a healthier sleep environment.",
+    href: "/services/mattress-cleaning",
+    image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+  },
+  {
+    title: "Office Cleaning",
+    body: "Comprehensive cleaning solutions for your workplace.",
+    href: "/services/office-cleaning",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80"
+  },
+  {
+    title: "Residential Deep Cleaning",
+    body: "Thorough cleaning for every corner of your home.",
+    href: "/services/residential-deep-cleaning",
+    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+  }
+];
 ---
 
 <Layout title="Alpha Cleaning - Professional Cleaning Services">
-	<Header />
 	<main>
-		<h2>Welcome to <span class="text-gradient">Alpha Cleaning</span></h2>
-		<p class="tagline">
-			Professional cleaning services for your home and office
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="/residential-cleaning"
-				title="Residential Cleaning"
-				body="Keep your home spotless with our expert residential cleaning services."
-			/>
-			<Card
-				href="/commercial-cleaning"
-				title="Commercial Cleaning"
-				body="Maintain a pristine work environment with our commercial cleaning solutions."
-			/>
-			<Card
-				href="/specialty-services"
-				title="Specialty Services"
-				body="From carpet cleaning to window washing, we offer a range of specialty services."
-			/>
-			<Card
-				href="/contact"
-				title="Get a Quote"
-				body="Contact us today for a free estimate on your cleaning needs."
-			/>
-		</ul>
+		<section class="hero">
+			<div class="hero-content">
+				<h1>Welcome to <span class="text-gradient">Alpha Cleaning</span></h1>
+				<p class="tagline">
+					Professional cleaning services for your home and office
+				</p>
+				<a href="/contact" class="cta-button">Contact Us</a>
+			</div>
+		</section>
+		<section class="services">
+			<h2>Our Services</h2>
+			<ul role="list" class="link-card-grid">
+				{services.map((service) => (
+					<Card
+						href={service.href}
+						title={service.title}
+						body={service.body}
+						image={service.image}
+					/>
+				))}
+			</ul>
+		</section>
+		<section class="callout">
+			<div class="callout-content">
+				<h2>Experience the Alpha Cleaning Difference</h2>
+				<p>Professional, reliable, and eco-friendly cleaning services tailored to your needs.</p>
+				<a href="/contact" class="cta-button">Get a Free Quote</a>
+			</div>
+		</section>
 	</main>
 </Layout>
 
 <style>
 	main {
 		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
+		width: 100%;
 		color: white;
 		font-size: 20px;
 		line-height: 1.6;
 	}
-	h2 {
+	.hero {
+		background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');
+		background-size: cover;
+		background-position: center;
+		height: 60vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.hero-content {
+		text-align: center;
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 0 1rem;
+	}
+	h1 {
 		font-size: 3rem;
 		font-weight: 700;
 		line-height: 1;
 		text-align: center;
-		margin-bottom: 1em;
+		margin-bottom: 0.5em;
 	}
 	.text-gradient {
 		background-image: var(--accent-gradient);
@@ -62,14 +115,58 @@ import Header from '../components/Header.astro';
 	}
 	.tagline {
 		text-align: center;
-		margin-bottom: 2rem;
+		margin-bottom: 1.5rem;
 		font-size: 1.5rem;
 		color: rgb(var(--accent-light));
 	}
+	.cta-button {
+		display: inline-block;
+		background-color: rgb(var(--accent));
+		color: white;
+		padding: 0.8em 1.5em;
+		border-radius: 0.25em;
+		text-decoration: none;
+		font-weight: bold;
+		font-size: 1.1rem;
+		transition: background-color 0.3s ease;
+	}
+	.cta-button:hover {
+		background-color: rgb(var(--accent-light));
+	}
+	.services {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 2rem 1rem;
+	}
+	.services h2 {
+		font-size: 2.5rem;
+		font-weight: 700;
+		margin-bottom: 1.5rem;
+		text-align: center;
+	}
 	.link-card-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 		gap: 2rem;
 		padding: 0;
+	}
+	.callout {
+		background-color: rgb(var(--accent-dark));
+		padding: 4rem 1rem;
+		margin-top: 2rem;
+	}
+	.callout-content {
+		max-width: 800px;
+		margin: 0 auto;
+		text-align: center;
+	}
+	.callout h2 {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+		color: rgb(var(--accent-light));
+	}
+	.callout p {
+		font-size: 1.2rem;
+		margin-bottom: 2rem;
 	}
 </style>

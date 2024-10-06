@@ -1,16 +1,33 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
 ---
 
 <Layout title="About Us - Alpha Cleaning">
-	<Header />
 	<main>
 		<h1>About Alpha Cleaning</h1>
-		<p>Alpha Cleaning is a professional cleaning service dedicated to providing top-quality cleaning solutions for both residential and commercial clients.</p>
-		<p>With years of experience and a team of skilled professionals, we take pride in our attention to detail and commitment to customer satisfaction.</p>
-		<h2>Our Mission</h2>
-		<p>To create cleaner, healthier, and more comfortable environments for our clients through our exceptional cleaning services and unwavering dedication to quality.</p>
+		<img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Alpha Cleaning Team" class="hero-image">
+		<section class="about-content">
+			<h2>Our Story</h2>
+			<p>Alpha Cleaning was founded in 2010 with a simple mission: to provide top-quality cleaning services that make a real difference in people's lives. What started as a small, family-owned business has grown into a trusted name in professional cleaning services, serving both residential and commercial clients across the region.</p>
+			
+			<h2>Our Commitment</h2>
+			<p>At Alpha Cleaning, we are committed to delivering exceptional cleaning results while prioritizing customer satisfaction, environmental responsibility, and the well-being of our team members. We continuously invest in training, equipment, and eco-friendly cleaning solutions to ensure we provide the best possible service to our clients.</p>
+			
+			<h2>Our Team</h2>
+			<p>Our success is built on the dedication and expertise of our cleaning professionals. Each member of our team is carefully selected, thoroughly trained, and shares our passion for cleanliness and customer service. We take pride in our work and treat every cleaning job with the utmost care and attention to detail.</p>
+			
+			<h2>Our Values</h2>
+			<ul>
+				<li><strong>Quality:</strong> We strive for excellence in every cleaning task we undertake.</li>
+				<li><strong>Integrity:</strong> We operate with honesty, transparency, and respect in all our interactions.</li>
+				<li><strong>Reliability:</strong> Our clients can count on us to deliver consistent, high-quality results.</li>
+				<li><strong>Sustainability:</strong> We are committed to using eco-friendly products and practices.</li>
+				<li><strong>Innovation:</strong> We continuously seek ways to improve our services and efficiency.</li>
+			</ul>
+			
+			<h2>Join the Alpha Cleaning Family</h2>
+			<p>Experience the difference that professional, caring cleaning services can make in your home or business. Contact us today to learn more about our services or to schedule your first cleaning appointment. Let us show you why Alpha Cleaning is the trusted choice for all your cleaning needs.</p>
+		</section>
 	</main>
 </Layout>
 
@@ -18,14 +35,11 @@ import Header from '../components/Header.astro';
 	main {
 		margin: auto;
 		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
+		width: 100%;
+		max-width: 1000px;
 		color: white;
 		font-size: 20px;
 		line-height: 1.6;
-	}
-	h1, h2 {
-		color: rgb(var(--accent-light));
 	}
 	h1 {
 		font-size: 3rem;
@@ -33,5 +47,28 @@ import Header from '../components/Header.astro';
 		line-height: 1;
 		text-align: center;
 		margin-bottom: 1em;
+		color: rgb(var(--accent-light));
+	}
+	.hero-image {
+		width: 100%;
+		max-height: 400px;
+		object-fit: cover;
+		border-radius: 8px;
+		margin-bottom: 2rem;
+	}
+	.about-content {
+		background-color: #23262d;
+		padding: 2rem;
+		border-radius: 8px;
+	}
+	h2 {
+		color: rgb(var(--accent-light));
+		margin-top: 2rem;
+	}
+	ul {
+		padding-left: 1.5rem;
+	}
+	li {
+		margin-bottom: 0.5rem;
 	}
 </style>
