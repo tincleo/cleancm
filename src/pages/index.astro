@@ -1,0 +1,75 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import Header from '../components/Header.astro';
+---
+
+<Layout title="Alpha Cleaning - Professional Cleaning Services">
+	<Header />
+	<main>
+		<h2>Welcome to <span class="text-gradient">Alpha Cleaning</span></h2>
+		<p class="tagline">
+			Professional cleaning services for your home and office
+		</p>
+		<ul role="list" class="link-card-grid">
+			<Card
+				href="/residential-cleaning"
+				title="Residential Cleaning"
+				body="Keep your home spotless with our expert residential cleaning services."
+			/>
+			<Card
+				href="/commercial-cleaning"
+				title="Commercial Cleaning"
+				body="Maintain a pristine work environment with our commercial cleaning solutions."
+			/>
+			<Card
+				href="/specialty-services"
+				title="Specialty Services"
+				body="From carpet cleaning to window washing, we offer a range of specialty services."
+			/>
+			<Card
+				href="/contact"
+				title="Get a Quote"
+				body="Contact us today for a free estimate on your cleaning needs."
+			/>
+		</ul>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	h2 {
+		font-size: 3rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 1em;
+	}
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+	.tagline {
+		text-align: center;
+		margin-bottom: 2rem;
+		font-size: 1.5rem;
+		color: rgb(var(--accent-light));
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 2rem;
+		padding: 0;
+	}
+</style>

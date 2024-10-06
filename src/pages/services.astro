@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Card from '../components/Card.astro';
+---
+
+<Layout title="Our Services - Alpha Cleaning">
+	<Header />
+	<main>
+		<h1>Our Services</h1>
+		<p class="intro">At Alpha Cleaning, we offer a wide range of professional cleaning services to meet all your needs. Whether it's your home, office, or a special cleaning project, we've got you covered.</p>
+		<div class="services-grid">
+			<Card
+				href="/residential-cleaning"
+				title="Residential Cleaning"
+				body="Keep your home spotless with our expert residential cleaning services."
+			/>
+			<Card
+				href="/commercial-cleaning"
+				title="Commercial Cleaning"
+				body="Maintain a pristine work environment with our commercial cleaning solutions."
+			/>
+			<Card
+				href="/specialty-services"
+				title="Specialty Services"
+				body="From carpet cleaning to window washing, we offer a range of specialty services."
+			/>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	h1 {
+		font-size: 3rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 1em;
+		color: rgb(var(--accent-light));
+	}
+	.intro {
+		text-align: center;
+		margin-bottom: 2rem;
+	}
+	.services-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 2rem;
+		padding: 0;
+	}
+</style>

@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+---
+
+<Layout title="Specialty Cleaning Services - Alpha Cleaning">
+	<Header />
+	<main>
+		<h1>Specialty Cleaning Services</h1>
+		<p>From carpet cleaning to window washing, we offer a range of specialty services.</p>
+		<ul>
+			<li>Carpet and upholstery cleaning</li>
+			<li>Window washing</li>
+			<li>Pressure washing</li>
+			<li>Post-construction cleaning</li>
+		</ul>
+		<p>Our specialty services are designed to tackle those tough cleaning jobs that require extra attention and specialized equipment.</p>
+		<a href="/contact" class="cta-button">Get a Quote</a>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	h1 {
+		font-size: 3rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 1em;
+		color: rgb(var(--accent-light));
+	}
+	.cta-button {
+		display: inline-block;
+		background-color: rgb(var(--accent));
+		color: white;
+		padding: 0.5em 1em;
+		border-radius: 0.25em;
+		text-decoration: none;
+		font-weight: bold;
+		margin-top: 1em;
+	}
+	.cta-button:hover {
+		background-color: rgb(var(--accent-light));
+	}
+</style>
