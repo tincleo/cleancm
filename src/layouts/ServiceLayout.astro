@@ -49,9 +49,9 @@ const otherServices = allServices.filter(service => service.title !== frontmatte
 
 <Layout title={`${frontmatter.title} - Alpha Cleaning`}>
 	<div class="service-layout">
+		<h1>{frontmatter.title}</h1>
 		<div class="main-content">
 			<main>
-				<h1>{frontmatter.title}</h1>
 				<div class="content">
 					<img src={frontmatter.image} alt={frontmatter.title} class="main-image" />
 					<slot />
@@ -83,6 +83,13 @@ const otherServices = allServices.filter(service => service.title !== frontmatte
 		max-width: 1200px;
 	}
 
+	h1 {
+		font-size: 2.5rem;
+		color: rgb(var(--accent-light));
+		margin-bottom: 1rem;
+		text-align: left; /* Changed from center to left */
+	}
+
 	.main-content {
 		display: flex;
 		gap: 2rem;
@@ -92,12 +99,6 @@ const otherServices = allServices.filter(service => service.title !== frontmatte
 	main {
 		flex: 1;
 		color: white;
-	}
-
-	h1 {
-		font-size: 2.5rem;
-		color: rgb(var(--accent-light));
-		margin-bottom: 1rem;
 	}
 
 	.content {
