@@ -49,39 +49,44 @@ const otherServices = allServices.filter(service => service.title !== frontmatte
 
 <Layout title={`${frontmatter.title} - Alpha Cleaning`}>
 	<div class="service-layout">
-		<main>
-			<h1>{frontmatter.title}</h1>
-			<img src={frontmatter.image} alt={frontmatter.title} class="main-image" />
-			<div class="content">
-				<slot />
-			</div>
-			<section class="other-services">
-				<h2>Other Services</h2>
-				<div class="services-grid">
-					{otherServices.map((service) => (
-						<ServiceCard
-							title={service.title}
-							description={service.description}
-							image={service.image}
-							link={service.link}
-						/>
-					))}
+		<div class="main-content">
+			<main>
+				<h1>{frontmatter.title}</h1>
+				<div class="content">
+					<img src={frontmatter.image} alt={frontmatter.title} class="main-image" />
+					<slot />
 				</div>
-			</section>
-		</main>
-		<aside>
-			<ContactSidebar />
-		</aside>
+			</main>
+			<aside>
+				<ContactSidebar />
+			</aside>
+		</div>
+		<section class="other-services">
+			<h2>Other Services</h2>
+			<div class="services-grid">
+				{otherServices.map((service) => (
+					<ServiceCard
+						title={service.title}
+						image={service.image}
+						link={service.link}
+					/>
+				))}
+			</div>
+		</section>
 	</div>
 </Layout>
 
 <style>
 	.service-layout {
-		display: flex;
-		gap: 2rem;
 		margin: auto;
 		padding: 1rem;
 		max-width: 1200px;
+	}
+
+	.main-content {
+		display: flex;
+		gap: 2rem;
+		margin-bottom: 2rem;
 	}
 
 	main {
@@ -95,6 +100,15 @@ const otherServices = allServices.filter(service => service.title !== frontmatte
 		margin-bottom: 1rem;
 	}
 
+	.content {
+		background-color: #23262d;
+		padding: 2rem;
+		border-radius: 8px;
+		margin-bottom: 2rem;
+		font-size: 1.1rem;
+		line-height: 1.6;
+	}
+
 	.main-image {
 		width: 100%;
 		max-height: 400px;
@@ -103,11 +117,12 @@ const otherServices = allServices.filter(service => service.title !== frontmatte
 		margin-bottom: 1rem;
 	}
 
-	.content {
-		background-color: #23262d;
-		padding: 2rem;
-		border-radius: 8px;
-		margin-bottom: 2rem;
+	aside {
+		width: 300px;
+	}
+
+	.other-services {
+		width: 100%;
 	}
 
 	.other-services h2 {
@@ -118,21 +133,27 @@ const otherServices = allServices.filter(service => service.title !== frontmatte
 
 	.services-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		grid-template-columns: repeat(3, 1fr);
 		gap: 1rem;
 	}
 
-	aside {
-		width: 300px;
+	@media (max-width: 1024px) {
+		.services-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
 	}
 
 	@media (max-width: 768px) {
-		.service-layout {
+		.main-content {
 			flex-direction: column;
 		}
 
 		aside {
 			width: 100%;
+		}
+
+		.services-grid {
+			grid-template-columns: 1fr;
 		}
 	}
 </style>
