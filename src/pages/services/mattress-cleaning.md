@@ -2,6 +2,21 @@
 layout: ../../layouts/ServiceLayout.astro
 title: Mattress Cleaning
 image: https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80
+faq:
+  - question: How often should I have my mattress professionally cleaned?
+    answer: We recommend professional mattress cleaning every 6-12 months, depending on usage and any allergies or respiratory issues in the household.
+
+  - question: How long does the mattress cleaning process take?
+    answer: The cleaning process typically takes 1-2 hours per mattress. Drying time is usually 4-6 hours, but can vary based on humidity and air circulation.
+
+  - question: Can you remove all types of stains from mattresses?
+    answer: We can remove most stains, but some may be permanent depending on the type of stain and how long it has set. We'll assess each stain and use the most effective treatment method.
+
+  - question: Is your cleaning process effective against dust mites and allergens?
+    answer: Yes, our cleaning process is designed to eliminate dust mites, allergens, and other microscopic irritants that commonly accumulate in mattresses.
+
+  - question: Do I need to do anything to prepare for mattress cleaning?
+    answer: Please remove all bedding (sheets, pillowcases, mattress protectors) before our arrival. If possible, clear a path to the bedroom for easy access.
 ---
 
 Alpha Cleaning offers professional mattress cleaning services to ensure you have a clean, healthy, and comfortable sleeping environment. Our expert technicians use advanced cleaning methods to remove dust mites, allergens, stains, and odors from your mattress, promoting better sleep and overall well-being.
