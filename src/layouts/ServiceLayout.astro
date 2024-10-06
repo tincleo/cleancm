@@ -111,13 +111,11 @@ const otherServices = allServices.filter(service => service.title !== frontmatte
 
 <script>
 	document.querySelectorAll('.faq-question').forEach(button => {
-		button.addEventListener('click', () => {
-			const expanded = button.getAttribute('aria-expanded') === 'true' || false;
-			button.setAttribute('aria-expanded', !expanded);
-			const answer = button.nextElementSibling;
-			answer.hidden = expanded;
-			button.querySelector('.faq-icon').textContent = expanded ? '+' : '-';
-		});
+		const expanded = button.getAttribute('aria-expanded') === 'true' || false;
+		button.setAttribute('aria-expanded', (!expanded).toString());
+		const answer = button.nextElementSibling;
+		answer.setAttribute('hidden', expanded.toString());
+		button.querySelector('.faq-icon').textContent = expanded ? '+' : '-';
 	});
 </script>
 

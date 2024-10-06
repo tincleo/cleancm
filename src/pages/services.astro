@@ -1,41 +1,41 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ServiceCard from '../components/ServiceCard.astro';
+import ServiceCardAlt from '../components/ServiceCardAlt.astro';
 
 const services = [
   {
     title: "Furniture Cleaning",
-    description: "Upholstery and leather cleaning, including repair and restoration.",
+    description: "Revitalize your furniture with our expert upholstery and leather cleaning services. We remove stubborn stains, eliminate odors, and eradicate allergens, breathing new life into your cherished pieces. Our skilled technicians use advanced techniques to ensure your furniture looks and feels refreshed.",
     image: "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     link: "/services/furniture-cleaning"
   },
   {
     title: "Carpet and Rug Cleaning",
-    description: "Professional cleaning for all types of carpets and rugs.",
+    description: "Transform your floors with our professional carpet and rug cleaning services. We use eco-friendly products and advanced equipment to deep clean, deodorize, and protect your floor coverings. Our thorough process removes dirt, stains, and allergens, leaving your carpets and rugs looking vibrant and feeling fresh.",
     image: "https://images.unsplash.com/photo-1558317374-067fb5f30001?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     link: "/services/carpet-rug-cleaning"
   },
   {
     title: "Car Interior Deep Cleaning",
-    description: "Thorough cleaning and detailing for your vehicle's interior.",
+    description: "Experience a pristine car interior with our deep cleaning service. We meticulously clean every nook and cranny, from the dashboard to the trunk. Our comprehensive service includes vacuuming, stain removal, leather conditioning, and odor elimination, ensuring your vehicle feels and smells as good as new.",
     image: "https://images.unsplash.com/photo-1607860108855-64acf2078ed9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80",
     link: "/services/car-interior-cleaning"
   },
   {
     title: "Mattress Cleaning",
-    description: "Deep cleaning and sanitization for a healthier sleep environment.",
+    description: "Invest in your health with our professional mattress cleaning service. We eliminate dust mites, allergens, and other harmful particles that accumulate over time. Our specialized cleaning process not only ensures a cleaner, healthier sleep environment but also extends the life of your mattress, promoting better sleep quality.",
     image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     link: "/services/mattress-cleaning"
   },
   {
     title: "Office Cleaning",
-    description: "Comprehensive cleaning solutions for your workplace.",
+    description: "Create a productive work environment with our comprehensive office cleaning solutions. We tailor our services to meet the unique needs of your workplace, ensuring a spotless and hygienic space for your employees and clients. From daily maintenance to deep cleaning, we cover all aspects of office cleanliness.",
     image: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
     link: "/services/office-cleaning"
   },
   {
     title: "Residential Deep Cleaning",
-    description: "Thorough cleaning for every corner of your home.",
+    description: "Transform your home with our thorough residential deep cleaning service. We leave no corner untouched, ensuring every area of your home sparkles. Our comprehensive service includes detailed cleaning of kitchens, bathrooms, living areas, and bedrooms, providing you with a fresh, immaculate living space.",
     image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     link: "/services/residential-deep-cleaning"
   }
@@ -45,14 +45,15 @@ const services = [
 <Layout title="Our Services - Alpha Cleaning">
 	<main>
 		<h1>Our Services</h1>
-		<p class="intro">At Alpha Cleaning, we offer a wide range of professional cleaning services to meet all your needs. Explore our services below and click for more details.</p>
-		<div class="services-grid">
-			{services.map((service) => (
-				<ServiceCard
+		<p class="intro">At Alpha Cleaning, we pride ourselves on delivering exceptional cleaning services tailored to meet all your needs. Our team of skilled professionals uses advanced techniques and eco-friendly products to ensure the highest quality results.</p>
+		<div class="services-list">
+			{services.map((service, index) => (
+				<ServiceCardAlt
 					title={service.title}
 					description={service.description}
 					image={service.image}
 					link={service.link}
+					imageOnRight={index % 2 === 0}
 				/>
 			))}
 		</div>
@@ -73,18 +74,25 @@ const services = [
 		font-size: 3rem;
 		font-weight: 700;
 		line-height: 1;
-		text-align: center;
-		margin-bottom: 1em;
+		text-align: left;
+		margin-bottom: 0.5em; /* Reduced space between heading and description */
 		color: rgb(var(--accent-light));
 	}
 	.intro {
-		text-align: center;
+		text-align: left;
 		margin-bottom: 2rem;
+		max-width: 70%;
 	}
-	.services-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	.services-list {
+		display: flex;
+		flex-direction: column;
 		gap: 2rem;
 		padding: 0;
+	}
+
+	@media (max-width: 768px) {
+		.intro {
+			max-width: 100%;
+		}
 	}
 </style>

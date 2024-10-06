@@ -1,0 +1,86 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  image: string;
+  link: string;
+  imageOnRight: boolean;
+}
+
+const { title, description, image, link, imageOnRight } = Astro.props;
+---
+
+<div class={`service-card ${imageOnRight ? 'image-right' : 'image-left'}`}>
+  <div class="content">
+    <h2>{title}</h2>
+    <p>{description}</p>
+    <a href={link} class="more-info">More Info</a>
+  </div>
+  <div class="image" style={`background-image: url(${image});`}></div>
+</div>
+
+<style>
+  .service-card {
+    display: flex;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+  }
+
+  .image-right {
+    flex-direction: row-reverse;
+  }
+
+  .content {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .image {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    min-height: 300px;
+  }
+
+  h2 {
+    color: #333;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: #666;
+    margin-bottom: 1.5rem;
+    /* Increase line height for better readability */
+    line-height: 1.6;
+  }
+
+  .more-info {
+    display: inline-block;
+    background-color: #8a2be2; /* Purple color */
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    align-self: flex-start; /* Align button to the left */
+  }
+
+  .more-info:hover {
+    background-color: #6a1b9a; /* Darker purple on hover */
+  }
+
+  @media (max-width: 768px) {
+    .service-card {
+      flex-direction: column;
+    }
+
+    .image {
+      min-height: 200px;
+    }
+  }
+</style>
