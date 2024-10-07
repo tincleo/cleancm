@@ -68,4 +68,17 @@ const { title } = Astro.props;
 			Courier New,
 			monospace;
 	}
+	footer {
+		padding: 2rem;
+		background: linear-gradient(var(--accent-dark), var(--accent-dark-gradient));
+		color: rgb(var(--accent-light));
+		text-align: center;
+	}
+
+	@media (max-width: 768px) {
+		footer {
+			margin-top: 0;
+			padding: 1rem;
+		}
+	}
 </style>

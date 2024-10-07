@@ -477,4 +477,27 @@ const galleryImages = [
 			grid-template-columns: 1fr;
 		}
 	}
+	@media (max-width: 768px) {
+		.hero {
+			height: 40vh;
+		}
+		h1 {
+			font-size: 2rem;
+		}
+		.link-card-grid {
+			grid-template-columns: 1fr;
+		}
+		.link-card-grid :global(.card-body) {
+			font-size: 0.9rem;
+		}
+		.glide__slide {
+			height: auto;
+		}
+		.callout {
+			padding: 2rem 1rem;
+		}
+		.callout h2 {
+			font-size: 2rem;
+		}
+	}
 </style>
