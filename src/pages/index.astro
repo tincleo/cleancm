@@ -80,6 +80,29 @@ const testimonials = [
     message: "Alpha Cleaning's residential deep cleaning service exceeded my expectations. Every corner sparkles!"
   }
 ];
+
+const galleryImages = [
+  {
+    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+    description: "Living Room Cleaning"
+  },
+  {
+    image: "https://images.unsplash.com/photo-1558317374-067fb5f30001?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+    description: "Carpet Cleaning"
+  },
+  {
+    image: "https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1768&q=80",
+    description: "Kitchen Cleaning"
+  },
+  {
+    image: "https://images.unsplash.com/photo-1595846519845-68e298c2edd8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+    description: "Bathroom Cleaning"
+  },
+  {
+    image: "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1774&q=80",
+    description: "Office Cleaning"
+  }
+];
 ---
 
 <Layout title="Alpha Cleaning - Professional Cleaning Services">
@@ -138,6 +161,16 @@ const testimonials = [
 				))}
 			</div>
 		</section>
+		<section class="gallery">
+			<h2>Our Work</h2>
+			<div class="gallery-grid" id="lightgallery">
+				{galleryImages.map((image, index) => (
+					<a href={image.image} class="gallery-item" data-lg-size="1600-1067">
+						<img src={image.image} alt={image.description} />
+					</a>
+				))}
+			</div>
+		</section>
 		<section class="callout">
 			<div class="callout-content">
 				<h2>Ready for a Cleaner Space?</h2>
@@ -150,12 +183,16 @@ const testimonials = [
 
 <script>
   import Glide from '@glidejs/glide';
+  import lightGallery from 'lightgallery';
+  import lgZoom from 'lightgallery/plugins/zoom';
+  import lgThumbnail from 'lightgallery/plugins/thumbnail';
 
+  // Glide initialization
   new Glide('.glide', {
     type: 'carousel',
     perView: 3,
-    autoplay: 5000, // Autoplay every 5 seconds
-    hoverpause: true, // Pause autoplay on hover
+    autoplay: 5000,
+    hoverpause: true,
     breakpoints: {
       800: {
         perView: 2
@@ -165,6 +202,37 @@ const testimonials = [
       }
     }
   }).mount();
+
+  // LightGallery initialization
+  lightGallery(document.getElementById('lightgallery'), {
+    plugins: [lgZoom, lgThumbnail],
+    speed: 500,
+    licenseKey: 'your-license-key', // Replace with your license key or remove this line for non-commercial use
+  });
+
+  // Add touch scrolling for mobile gallery
+  const galleryGrid = document.querySelector('.gallery-grid');
+  let isScrolling = false;
+  let startX;
+  let scrollLeft;
+
+  galleryGrid.addEventListener('touchstart', (e) => {
+    isScrolling = true;
+    startX = e.touches[0].pageX - galleryGrid.offsetLeft;
+    scrollLeft = galleryGrid.scrollLeft;
+  });
+
+  galleryGrid.addEventListener('touchmove', (e) => {
+    if (!isScrolling) return;
+    e.preventDefault();
+    const x = e.touches[0].pageX - galleryGrid.offsetLeft;
+    const walk = (x - startX) * 2;
+    galleryGrid.scrollLeft = scrollLeft - walk;
+  });
+
+  galleryGrid.addEventListener('touchend', () => {
+    isScrolling = false;
+  });
 </script>
 
 <style>
@@ -353,5 +421,60 @@ const testimonials = [
 	}
 	.glide__bullet--active {
 		background-color: rgba(102, 51, 153, 1);
+	}
+	.gallery {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 2rem 1rem;
+	}
+	.gallery h2 {
+		font-size: 2.5rem;
+		font-weight: 700;
+		margin-bottom: 1.5rem;
+		text-align: center;
+		color: rgb(var(--accent-light));
+	}
+	.gallery-grid {
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		gap: 1rem;
+	}
+	.gallery-item {
+		position: relative;
+		overflow: hidden;
+		cursor: pointer;
+	}
+	.gallery-item img {
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+		aspect-ratio: 1 / 1;
+	}
+	@media (max-width: 1200px) {
+		.gallery-grid {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+	@media (max-width: 768px) {
+		.gallery-grid {
+			display: flex;
+			overflow-x: auto;
+			scroll-snap-type: x mandatory;
+			-webkit-overflow-scrolling: touch;
+			scroll-behavior: smooth;
+		}
+		.gallery-item {
+			flex: 0 0 calc(50% - 0.5rem);
+			scroll-snap-align: start;
+			margin-right: 1rem;
+		}
+		.gallery-item:last-child {
+			margin-right: 0;
+		}
+	}
+	@media (max-width: 480px) {
+		.gallery-grid {
+			grid-template-columns: 1fr;
+		}
 	}
 </style>

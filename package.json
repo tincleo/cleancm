@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@glidejs/glide": "^3.6.2",
-    "astro": "^4.15.11"
+    "astro": "^4.15.11",
+    "lightgallery": "^2.7.2"
   }
 }
