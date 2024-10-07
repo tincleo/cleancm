@@ -22,10 +22,17 @@ const { title, description, image, link, imageOnRight } = Astro.props;
 <style>
   .service-card {
     display: flex;
-    background-color: #f0f0f0;
+    background-color: #23262d;
     border-radius: 8px;
     overflow: hidden;
     margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   }
 
   .image-right {
@@ -48,30 +55,31 @@ const { title, description, image, link, imageOnRight } = Astro.props;
   }
 
   h2 {
-    color: #333;
+    color: rgb(var(--accent-light));
     margin-bottom: 1rem;
+    font-size: 1.5rem;
   }
 
   p {
-    color: #666;
+    color: #c2c2c2;
     margin-bottom: 1.5rem;
-    /* Increase line height for better readability */
     line-height: 1.6;
   }
 
   .more-info {
     display: inline-block;
-    background-color: #8a2be2; /* Purple color */
+    background-color: rgb(var(--accent));
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 4px;
     text-decoration: none;
     transition: background-color 0.3s ease;
-    align-self: flex-start; /* Align button to the left */
+    align-self: flex-start;
+    font-weight: bold;
   }
 
   .more-info:hover {
-    background-color: #6a1b9a; /* Darker purple on hover */
+    background-color: rgb(var(--accent-dark));
   }
 
   @media (max-width: 768px) {
