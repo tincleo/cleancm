@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+import Testimonial from '../components/Testimonial.astro';
 
 const services = [
   {
@@ -40,6 +41,27 @@ const services = [
     image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
   }
 ];
+
+const testimonials = [
+  {
+    name: "Sarah Johnson",
+    rating: 5,
+    location: "Yaoundé, Cameroon",
+    message: "Alpha Cleaning transformed my home! Their attention to detail is impressive, and my furniture looks brand new."
+  },
+  {
+    name: "Emmanuel Nkodo",
+    rating: 4,
+    location: "Douala, Cameroon",
+    message: "Great service for office cleaning. Our workspace feels more professional and welcoming now."
+  },
+  {
+    name: "Marie Tchuente",
+    rating: 5,
+    location: "Bafoussam, Cameroon",
+    message: "I was amazed at how they cleaned my carpets. Stains I thought were permanent are gone!"
+  }
+];
 ---
 
 <Layout title="Alpha Cleaning - Professional Cleaning Services">
@@ -65,6 +87,19 @@ const services = [
 					/>
 				))}
 			</ul>
+		</section>
+		<section class="reviews">
+			<h2>Customer Reviews</h2>
+			<div class="testimonials-grid">
+				{testimonials.map((testimonial) => (
+					<Testimonial
+						name={testimonial.name}
+						rating={testimonial.rating}
+						location={testimonial.location}
+						message={testimonial.message}
+					/>
+				))}
+			</div>
 		</section>
 		<section class="callout">
 			<div class="callout-content">
@@ -197,5 +232,23 @@ const services = [
 	.cta-button:hover {
 		background-color: #663399;
 		color: white;
+	}
+	.reviews {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 2rem 1rem;
+	}
+	.reviews h2 {
+		font-size: 2.5rem;
+		font-weight: 700;
+		margin-bottom: 1.5rem;
+		text-align: center;
+		color: rgb(var(--accent-light));
+	}
+	.testimonials-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+		padding: 0;
 	}
 </style>

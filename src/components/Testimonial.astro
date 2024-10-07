@@ -1,0 +1,59 @@
+---
+export interface Props {
+  name: string;
+  rating: number;
+  location: string;
+  message: string;
+}
+
+const { name, rating, location, message } = Astro.props;
+---
+
+<div class="testimonial">
+  <div class="rating">
+    {[...Array(5)].map((_, i) => (
+      <span class={i < rating ? "star filled" : "star"}>★</span>
+    ))}
+  </div>
+  <p class="message">"{message}"</p>
+  <div class="info">
+    <span class="name">{name}</span>
+    <span class="location">{location}</span>
+  </div>
+</div>
+
+<style>
+  .testimonial {
+    background-color: #2a2d37;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .rating {
+    margin-bottom: 0.5rem;
+  }
+  .star {
+    color: #ccc;
+    font-size: 1.2rem;
+  }
+  .star.filled {
+    color: #ffd700;
+  }
+  .message {
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+  .info {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9rem;
+  }
+  .name {
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 0.2rem;
+  }
+  .location {
+    color: #888;
+  }
+</style>
